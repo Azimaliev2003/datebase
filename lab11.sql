@@ -1,23 +1,20 @@
 
--- -- -- -- -- -- -- Lab 11
----------Task 1---------
+---------Задания 1---------
 CREATE OR REPLACE FUNCTION sum_or_rollback(a INT, b INT, c INT) RETURNS VOID AS $$
 BEGIN
     IF c >= 0 THEN
-        -- Если сумма неотрицательна, то вычисляем ее
         RAISE NOTICE 'Сумма % = %', c, a + b;
     ELSE
-        -- Иначе откатываем транзакцию
         RAISE EXCEPTION 'Отрицательная сумма';
     END IF;
 END;
 $$ LANGUAGE plpgsql;
 
-SELECT sum_or_rollback(10, 15, 7); -- Сумма 22
-SELECT sum_or_rollback(10, 15, -7); -- Ошибка "Отрицательная сумма"
+SELECT sum_or_rollback(10, 15, 7); --  22
+SELECT sum_or_rollback(10, 15, -7); -- "Отрицательная сумма"
 
 
----------Task 2---------
+--------Задания 2---------
 -- Вставить данные в таблицу клиентов, если не заполнена фамилия клиента – откат транзакции
 CREATE OR REPLACE FUNCTION check_user_name() RETURNS TRIGGER AS $$
 BEGIN
@@ -34,7 +31,7 @@ FOR EACH ROW
 EXECUTE FUNCTION check_user_name();
 
 
----------Task 3---------
+---------Задания 3---------
 --Вставить данные в таблицу заказов, если есть задолженность по предыдущим заказам, откатить транзакцию
 
 -- Создание таблицы заказов
@@ -66,7 +63,7 @@ CREATE TRIGGER check_customer_debt
   FOR EACH ROW
   EXECUTE FUNCTION check_customer_debt();
 
----------Task 4---------
+---------Задания 4---------
 ---Задание 1:
 
 CREATE TABLE departments (
