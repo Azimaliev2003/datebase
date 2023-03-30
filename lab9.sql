@@ -1,4 +1,4 @@
-CREATE DATABASE Lab_work_9;
+CREATE DATABASE lab9;
 
 create table tip_klienta
 (
@@ -273,105 +273,105 @@ create table oplata2
 );
 
 INSERT INTO vid_oplaty(vid_oplaty)
-VALUES ('Electronic money'),
-       ('By bank card through the terminal'),
-       ('Transfer via internet bank'),
-       ('Payment via mobile phone'),
-       ('Calculation using bank card details');
+VALUES ('Електронный кошолек'),
+       ('Онлайн перевод'),
+       ('Наличными'),
+       ('Онлайн перевод'),
+       ('Перевод через банк');
 
 INSERT INTO tip_kontaktov(tip_kontaktov)
-VALUES ('Address'),
-       ('Phone'),
-       ('E-Mail'),
-       ('Web-Page'),
-       ('Other');
+VALUES ('Дом адрес'),
+       ('почта'),
+       ('телефон'),
+       ('индекс'),
+       ('дом телефон');
 
 INSERT INTO rayon(rayon)
-VALUES ('Aksy'),
-       ('Ala-Buka'),
-       ('Toktogul'),
-       ('Nooken'),
-       ('Bazar-Korgon');
+VALUES ('Токтогул'),
+       ('Чолпон-Ата'),
+       ('Нарын'),
+       ('Бишкек'),
+       ('Кемин');
 
 INSERT INTO tip_klienta(tip_klienta)
-VALUES ('Purposeful'),
-       ('Know-it-all'),
-       ('Talker'),
-       ('Indecisive'),
-       ('Uncommunicative');
+VALUES ('a'),
+       ('b'),
+       ('c'),
+       ('d'),
+       ('h');
 
 INSERT INTO tip_prodaj(tip_prodaj)
-VALUES ('To corporative clients'),
-       ('Individuals'),
-       ('State institutions'),
-       ('Active'),
-       ('Passive');
+VALUES ('1'),
+       ('2'),
+       ('3'),
+       ('4'),
+       ('5');
 
 INSERT INTO sostoyanie(sostoyanie)
-VALUES ('Accepted'),
-       ('In work'),
-       ('Done'),
-       ('Discontinued');
+VALUES ('уу'),
+       ('кк'),
+       ('цц'),
+       ('йй');
 
 INSERT INTO tip_zakaza(tip_zakaza)
-VALUES ('Regular order'),
-       ('Rush order');
+VALUES ('пост'),
+       ('част');
 
 INSERT INTO doljnost(doljnost)
-VALUES ('Director'),
-       ('Chief Accountant'),
-       ('Chief dispatcher'),
-       ('Chief Engineer'),
-       ('Chief designer'),
-       ('Chief metallurgist'),
-       ('Chief metrologist');
+VALUES ('Директор'),
+       ('Ассистент'),
+       ('Дизайнер'),
+       ('Программист'),
+       ('Инженер'),
+       ('Архитектор'),
+       ('Врач');
 
 INSERT INTO tip_postavki(tip_postavki)
-VALUES ('DAF'),
-       ('DDP'),
-       ('DDU'),
-       ('DES'),
-       ('DEQ');
+VALUES ('ww'),
+       ('ee'),
+       ('rr'),
+       ('tt'),
+       ('uy');
 
 INSERT INTO tip_postavshika(tip_postavshika)
-VALUES ('Manufacturers'),
-       ('Distributors'),
-       ('Importers');
+VALUES ('Производители'),
+       ('Производители'),
+       ('Производители');
 
 INSERT INTO tip_tovara(tip_tovara)
-VALUES ('Wholesale goods'),
-       ('Consumer goods'),
-       ('Industrial goods'),
-       ('Services');
+VALUES ('Оптовый'),
+       ('Одиночный'),
+       ('Рыночный'),
+       ('ЛОР');
 
-INSERT INTO tovar (tovar, comments, photo, id_tip_tovara)
-VALUES ('iPhone', 'Latest model with great camera', 'iPhone.jpg', 1),
-       ('Shirt', 'Stylish and comfortable', 'Shirt.jpg', 2),
-       ('Sofa', 'Comfortable and spacious', 'Sofa.jpg', 3),
-       ('Blender', 'Powerful and easy to use', 'Blender.jpg', 4);
+INSERT INTO tovar (tovar, comments, id_tip_tovara)
+VALUES ('Велосипед', 'Хороший', 1),
+       ('Ноутбук', 'Хороший', 2),
+       ('Наушник', 'Хороший', 3),
+       ('Сумка', 'Хороший', 4);
 
 INSERT INTO price_list (cena, data, comments, id_tovar)
-VALUES (999.99, '2022-12-01', 'Launch price', 1),
-       (39.99, '2022-06-01', 'Summer collection', 2),
-       (499.99, '2022-08-01', 'Limited offer', 3),
-       (79.99, '2022-09-01', 'Fall collection', 4);
+VALUES (124, '2022-12-01', 'дорого', 1),
+       (231, '2022-06-01', 'дорого', 2),
+       (2346, '2022-08-01', 'дорого', 3),
+       (2346, '2022-09-01', 'дорого', 4);
 
 
 INSERT INTO postavshik (nazvaniye, familiya_postavshika, imya_postavshika, otchestvo_postavshika, id_tip_postavshika)
-VALUES ('Apple Inc.', 'Steve', 'P', 'Jobs', 1),
-       ('Best Buy', 'Hubert', 'J', 'Whitmore', 2),
-       ('Samsung', 'Lee', 'Byung-chul', 'P', 3);
+VALUES ('Постав1', 'Постав1', 'Постав1', 'Постав1', 1),
+       ('Постав2', 'Постав1', 'Постав1', 'Постав1', 2),
+       ('Постав3', 'Постав1', 'Постав1', 'Постав1', 3);
 
 
 INSERT INTO postavki (numer_doc, data, comments, id_postavshik, id_tip_postavki)
-VALUES ('P0001', '2022-01-01', 'First shipment from Apple Inc.', 5, 1),
-       ('P0002', '2022-02-01', 'Monthly shipment from Best Buy', 6, 2),
-       ('P0003', '2022-03-01', 'Weekly shipment from Samsung', 7, 3);
+VALUES ('fw3000', '2022-01-01', 'Хорошие поступление', 5, 1),
+       ('fw3000', '2022-02-01', 'Хорошие поступление', 6, 2),
+       ('fw3000', '2022-03-01', 'Хорошие поступление', 7, 3);
 
 INSERT INTO oplata2(data, summa, comments, id_postavki)
-VALUES ('2022-01-05', 1000, 'Payment for shipment P0001', 10),
-       ('2022-02-01', 2000, 'Payment for shipment P0002', 11),
-       ('2022-03-10', 1500, 'Payment for shipment P0003', 12);
+VALUES ('2022-01-05', 1000, 'успешно', 10),
+       ('2022-02-01', 2000, 'успешно', 11),
+       ('2022-03-10', 1500, 'успешно', 12);
 
 INSERT INTO spisok_postavki (id_postavki, cena, kolichestvo, srok_godnosti)
 VALUES (10, 20, 50, '2022-12-31'),
@@ -381,21 +381,21 @@ VALUES (10, 20, 50, '2022-12-31'),
 
 INSERT INTO klient(familiya_klienta, imya_klienta, otchestvo_klienta, passport_klienta, password, login, mesto_raboty,
                    skidka, id_tip_klienta, id_rayon)
-VALUES ('John', 'A', 'Doe', '123456789', 'password1', 'johndoe', 'Microsoft', 10, 1, 1),
-       ('Jane', 'B', 'Doe', '987654321', 'password2', 'janedoe', 'Google', 20, 2, 2),
-       ('Jim', 'C', 'Smith', '111222333', 'password3', 'jimsmith', 'Apple', 30, 3, 3);
+VALUES ('Тимонов', 'Тимофей', 'Тимонович', '123456789', 'password1', '235', 'makers', 10, 1, 1),
+       ('Тимонов', 'Тимофей', 'Тимонович', '987654321', 'password2', '25', 'Google', 20, 2, 2),
+       ('Тимонов', 'Тимофей', 'Тимонович', '111222333', 'password3', '235', 'Apple', 30, 3, 3);
 
 
 INSERT INTO kontakty(kontakty, id_klient, id_tip_kontaktov)
-VALUES ('chingiz.kartanbaev@gmail.com', 1, 1),
+VALUES ('Bektemir@gmail.com', 1, 1),
        ('0555261203', 2, 2),
-       ('Chingiz@skype', 3, 3);
+       ('236', 3, 3);
 
 
 
 INSERT INTO sotrudnik (familiya_sotrudnika, imya_sotrudnika, otchestvo_sotrudnika, id_doljnost)
-VALUES ('Бирюкова', 'Дарья', 'Даниэльевна', 1),
-       ('Зотов', 'Александр', 'Данилович', 3),
+VALUES ('Кирил', 'Кирил', 'Кирил', 1),
+       ('Михаилов', 'Михаил', 'Михаилович', 3),
        ('Мещеряков', 'Марк', 'Владимирович', 4);
 
 INSERT INTO zakaz (data, nomer_doc, comments, id_klient, id_tip_zakaza, id_sostoyanie, id_tip_prodaj, id_sotrudnik)
@@ -403,8 +403,8 @@ VALUES ('2023-02-11', '0001', 'Комментарий 1', 1, 1, 1, 1, 1),
        ('2023-02-12', '0002', 'Комментарий 2', 2, 2, 2, 2, 2);
 
 INSERT INTO oplata (data, summa, comments, id_zakaz, id_vid_oplaty)
-VALUES ('2022-01-01', 1000, 'Payment for order 1', 5, 1),
-       ('2022-02-01', 500, 'Payment for order 2', 4, 2);
+VALUES ('2022-01-01', 1000, 'ааааа', 5, 1),
+       ('2022-02-01', 500, 'rвыапвы', 4, 2);
 
 INSERT INTO spisok_tovarov(cena, kolichestvo, id_zakaz, id_tovar, id_spisok_postavki)
 VALUES (100, 2, 4, 1, 6),
@@ -514,26 +514,26 @@ WHERE id_klient in (SELECT id_klient FROM klient WHERE id_klient = 1)
   and data BETWEEN ('2023-02-11') and ('2023-02-12');
 
 
--- ⦁	Изменение цен на товары, поставленные за период
+-- Изменение цен на товары, поставленные за период --
 UPDATE price_list
 SET cena = 134
 WHERE data >= '2022-09-01'
   and data <= '2022-12-01';
 
 
--- ⦁	Актуальный прайс-лист
+-- Актуальный прайс-лист --
 SELECT *
 FROM price_list;
 
 
--- ⦁	Оплата по продажам (журнал) за период
+-- Оплата по продажам за период---
 SELECT id_oplata, summa, id_zakaz
 FROM oplata
 WHERE data >= '2022-01-01'
   and data <= '2022-03-01';
 
 
--- ⦁	Оплата по виду оплаты за период
+-- Оплата по виду оплаты за период --
 SELECT summa
 FROM oplata
 WHERE id_vid_oplaty = (SELECT id_vid_oplaty from vid_oplaty WHERE vid_oplaty = 'cash')
@@ -541,7 +541,7 @@ WHERE id_vid_oplaty = (SELECT id_vid_oplaty from vid_oplaty WHERE vid_oplaty = '
   and data <= '2022-03-01';
 
 
--- ⦁	Продажи по сотрудникам статистика
+-- 	Продажи по сотрудникам статистика --
 SELECT *
 FROM zakaz
 WHERE id_sotrudnik = 1;
