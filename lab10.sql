@@ -1,4 +1,4 @@
-create database lab_work_10;
+create database lab10;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -8,7 +8,7 @@ CREATE TABLE users (
   created_at TIMESTAMP DEFAULT NOW()
 );
 
-INSERT INTO users (name, email, age) VALUES ('Alice', 'alice@example.com', 25);
+INSERT INTO users (name, email, age) VALUES ('Alex', 'alex@gmail.com', 25);
 INSERT INTO users (name, email, age) VALUES ('Bob', 'bob@example.com', 30);
 INSERT INTO users (name, email, age) VALUES ('Charlie', 'charlie@example.com', 35);
 
