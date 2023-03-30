@@ -9,8 +9,8 @@ CREATE TABLE users (
 );
 
 INSERT INTO users (name, email, age) VALUES ('Alex', 'alex@gmail.com', 25);
-INSERT INTO users (name, email, age) VALUES ('Bob', 'bob@example.com', 30);
-INSERT INTO users (name, email, age) VALUES ('Charlie', 'charlie@example.com', 35);
+INSERT INTO users (name, email, age) VALUES ('Kristin', 'kris.com', 30);
+INSERT INTO users (name, email, age) VALUES ('Theon', 'theon@.com', 35);
 
 CREATE TABLE posts (
   id SERIAL PRIMARY KEY,
@@ -20,9 +20,9 @@ CREATE TABLE posts (
   created_at TIMESTAMP DEFAULT NOW()
 );
 
-INSERT INTO posts (title, body, user_id) VALUES ('Post 1', 'This is the first post', 1);
-INSERT INTO posts (title, body, user_id) VALUES ('Post 2', 'This is the second post', 2);
-INSERT INTO posts (title, body, user_id) VALUES ('Post 3', 'This is the third post', 3);
+INSERT INTO posts (title, body, user_id) VALUES ('Post 1', 'first post', 1);
+INSERT INTO posts (title, body, user_id) VALUES ('2', 'post', 2);
+INSERT INTO posts (title, body, user_id) VALUES ('Post 3', 'third post', 3);
 
 CREATE TABLE comments (
   id SERIAL PRIMARY KEY,
@@ -32,12 +32,12 @@ CREATE TABLE comments (
   created_at TIMESTAMP DEFAULT NOW()
 );
 
-INSERT INTO comments (body, user_id, post_id) VALUES ('Comment 1 on post 1', 2, 1);
-INSERT INTO comments (body, user_id, post_id) VALUES ('Comment 2 on post 1', 3, 1);
-INSERT INTO comments (body, user_id, post_id) VALUES ('Comment 1 on post 2', 1, 2);
-INSERT INTO comments (body, user_id, post_id) VALUES ('Comment 2 on post 2', 3, 2);
-INSERT INTO comments (body, user_id, post_id) VALUES ('Comment 1 on post 3', 1, 3);
-INSERT INTO comments (body, user_id, post_id) VALUES ('Comment 2 on post 3', 2, 3);
+INSERT INTO comments (body, user_id, post_id) VALUES (' 1  post 1', 2, 1);
+INSERT INTO comments (body, user_id, post_id) VALUES (' 2  post 1', 3, 1);
+INSERT INTO comments (body, user_id, post_id) VALUES (' 1  post 2', 1, 2);
+INSERT INTO comments (body, user_id, post_id) VALUES (' 2  post 2', 3, 2);
+INSERT INTO comments (body, user_id, post_id) VALUES (' 1  post 3', 1, 3);
+INSERT INTO comments (body, user_id, post_id) VALUES (' 2  post 3', 2, 3);
 
 CREATE TABLE replies (
     id SERIAL PRIMARY KEY,
@@ -46,24 +46,23 @@ CREATE TABLE replies (
     reply_text TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT NOW()
 );INSERT INTO replies (comment_id, user_id, reply_text)
-VALUES (1, 2, 'Согласен с Вами!');
+VALUES (1, 2, 'Коммент');
 
 INSERT INTO replies (comment_id, user_id, reply_text)
-VALUES (1, 3, 'Я бы поспорил с Вами.');
+VALUES (1, 3, 'Коммент');
 
 INSERT INTO replies (comment_id, user_id, reply_text)
-VALUES (2, 3, 'Спасибо за комментарий!');
+VALUES (2, 3, 'Коммент');
 
 INSERT INTO replies (comment_id, user_id, reply_text)
 VALUES (3, 1, 'Ну и зачем Вы это написали?');
 
 
--- Триггер before insert на таблицу users, который проверяет, что пользователь старше 18 лет:
 CREATE OR REPLACE FUNCTION check_age()
 RETURNS TRIGGER AS $$
 BEGIN
   IF NEW.age < 18 THEN
-    RAISE EXCEPTION 'Age must be greater than or equal to 18';
+    RAISE EXCEPTION 'Возраст должен быть не меньше 18 лет';
   END IF;
   RETURN NEW;
 END;
@@ -74,7 +73,6 @@ BEFORE INSERT ON users
 FOR EACH ROW
 EXECUTE FUNCTION check_age();
 
--- Триггер after insert на таблицу posts, который добавляет дату создания поста:
 
 CREATE OR REPLACE FUNCTION add_created_at()
 RETURNS TRIGGER AS $$
@@ -89,7 +87,6 @@ AFTER INSERT ON posts
 FOR EACH ROW
 EXECUTE FUNCTION add_created_at();
 
--- Триггер instead of delete на таблицу comments, который удаляет все комментарии пользователя, если он удаляет свой аккаунт:
 CREATE VIEW comments_view AS
 SELECT id, body, user_id, post_id, created_at
 FROM comments;
